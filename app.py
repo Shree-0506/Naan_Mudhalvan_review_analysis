@@ -720,15 +720,15 @@ def display_feedback_section():
         with col1:
             if st.button("Great", key="positive-feedback", type="primary", use_container_width=True):
                 st.session_state.feedback_given = True
-                st.experimental_rerun()
+                st.rerun()
         with col2:
             if st.button("Okay", key="neutral-feedback", type="primary", use_container_width=True):
                 st.session_state.feedback_given = True
-                st.experimental_rerun()
+                st.rerun()
         with col3:
             if st.button("Poor", key="negative-feedback", type="primary", use_container_width=True):
                 st.session_state.feedback_given = True
-                st.experimental_rerun()
+                st.rerun()
     else:
         st.success("Thank you for your feedback! We're always working to improve your experience.")
 
@@ -744,7 +744,7 @@ def display_main_app():
         st.sidebar.markdown(f"<h3>Hello, {st.session_state.username}!</h3>", unsafe_allow_html=True)
         if st.sidebar.button("Change name"):
             st.session_state.username = "Friend"
-            st.experimental_rerun()
+            st.rerun()
     
     # Display mood statistics in sidebar
     st.sidebar.markdown('<h3 class="sub-header">Your Review Stats</h3>', unsafe_allow_html=True)
@@ -856,7 +856,7 @@ def display_main_app():
             
             # Reset input and trigger a rerun to update the UI
             st.session_state.input_key += 1
-            st.experimental_rerun()
+            st.rerun()
 
 # Display the app
 display_main_app()
@@ -874,4 +874,4 @@ with st.expander("Reset Options"):
         st.session_state.input_key = 0
         st.session_state.feedback_given = False
         st.session_state.mood_tips = []
-        st.experimental_rerun()
+        st.rerun()
